@@ -9,3 +9,5 @@ class Checks extends React.Component {
       )
     }
 }
+
+export default Checks

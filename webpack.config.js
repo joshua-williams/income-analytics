@@ -14,24 +14,19 @@ module.exports = {
     publicPath: path.resolve(__dirname, 'public/bundle')
   },
 
-
   module: {
     rules: [{
       test: /\.jsx?$/,
-      include: [
-        path.resolve(__dirname, 'resources/js')
-      ],
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
+      exclude: '/node_modules/',
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', '@babel/preset-react']
       }
     }, {
       test: /\.s?css$/,
       use: [
-        //{loader: 'style-loader'},
-        {loader: MiniCssExtractPlugin.loader},
+        {loader: 'style-loader'},
+        //{loader: MiniCssExtractPlugin.loader},
         {loader: 'css-loader'},
         {
           loader: 'sass-loader',
